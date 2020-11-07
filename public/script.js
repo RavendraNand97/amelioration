@@ -14,18 +14,23 @@ function findMatches(wordToMatch, cities){
     });
 }
 function displayMatches(){
+    if (this.value == null){
+        return suggestions.reset();
+    }
+    else {
     const matchArray = findMatches(this.value, cities);
     const html = matchArray.map(place => {
 
         return `
-            <ul>
-              <li class = "name"> ${place.name}</li>
-              <li class = "name"> ${place.city}</li>
-              <li class = "name"> ${place.zip}</li>
-            </ul>
+            <li>
+              <span class = 'name'> ${place.name}</span><br>
+              <span class = 'city'> ${place.city}</span><br>
+              <span class = 'zip'> ${place.zip} </span>
+            </li>
         `;
     }).join('');
     suggestions.innerHTML = html;
+    }
 }
 
 const searchInput = document.querySelector('.textinput');
