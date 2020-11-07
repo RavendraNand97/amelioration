@@ -10,10 +10,27 @@ fetch(endpoint)
 function findMatches(wordToMatch, cities){
     return cities.filter(place => {
         const regex = new RegExp(wordToMatch, 'gi');
-       return place.city.match(regex) || place.state.match(regex);
+       return place.city.match(regex) || place.state.match(regex) || place.zip.match(regex);
     });
 }
-
 function displayMatches(){
-    console.log(this.value);
+    const matchArray = findMatches(this.value, cities);
+    const html = matchArray.map(place => {
+
+        return `
+            <ul>
+              <li class = "name"> ${place.name}</li>
+              <li class = "name"> ${place.city}</li>
+              <li class = "name"> ${place.zip}</li>
+            </ul>
+        `;
+    }).join('');
+    suggestions.innerHTML = html;
 }
+
+const searchInput = document.querySelector('.textinput');
+const suggestions = document.querySelector('.suggestions')
+
+searchInput.addEventListener('keyup', displayMatches);
+
+
