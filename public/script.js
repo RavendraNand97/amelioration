@@ -14,10 +14,6 @@ function findMatches(wordToMatch, cities){
     });
 }
 function displayMatches(){
-    if (this.value == null){
-        return suggestions.reset();
-    }
-    else {
     const matchArray = findMatches(this.value, cities);
     const html = matchArray.map(place => {
 
@@ -30,7 +26,7 @@ function displayMatches(){
         `;
     }).join('');
     suggestions.innerHTML = html;
-    }
+    
 }
 
 const searchInput = document.querySelector('.textinput');
