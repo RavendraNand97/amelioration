@@ -27,8 +27,14 @@ h1 {
 }
 .textinput[type="text"] {
     height: 25px;
-    weight: 60px;
+    width: 60px;
+    justify-content: center;
     align-items: center;
+}
+ul{
+    justify-content: center;
+    align-items: center;
+    
 }
 
 li{
@@ -36,4 +42,6 @@ li{
     background: linear-gradient(180deg, rgba(71,203,255,1) 30%, rgba(158,228,255,1) 78%, rgba(255,255,255,1) 100%);
     padding: 30;
     margin: 15;
+    justify-content: center;
+    align-items: center;
 }
